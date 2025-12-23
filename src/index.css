@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Light Mode (Clean & Sharp) */
+    --bg-color: #ffffff;
+    --card-bg: #f3f4f6;
+    --text-color: #111827;
+    --text-muted: #6b7280;
+    --border-color: #e5e7eb;
+    --accent-color: #2563eb;
+    --glow-color: rgba(37, 99, 235, 0.1);
+}
+
+[data-theme='dark'] {
+    /* Dark Mode (Deep Navy/Black) */
+    --bg-color: #020617;
+    /* Slate-950 */
+    --card-bg: #0f172a;
+    /* Slate-900 */
+    --text-color: #f8fafc;
+    /* Slate-50 */
+    --text-muted: #94a3b8;
+    /* Slate-400 */
+    --border-color: #1e293b;
+    /* Slate-800 */
+    --accent-color: #38bdf8;
+    /* Sky-400 */
+    --glow-color: rgba(56, 189, 248, 0.15);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Selection Color */
+::selection {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
+
+/* Utility Classes for Glassmorphism */
+.glass-card {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='light'] .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
