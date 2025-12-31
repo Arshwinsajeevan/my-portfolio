@@ -4,20 +4,24 @@ import { motion } from 'framer-motion';
 const Skills = () => {
     const skillCategories = [
         {
-            title: 'Programming & Frameworks',
-            skills: ['Python', 'JavaScript', 'React.js', 'Node.js', 'Django', 'Flask', 'AngularJS', 'Express.js', 'HTML5', 'CSS3']
+            title: 'Programming Languages',
+            skills: ['Python', 'JavaScript', 'HTML', 'CSS']
         },
         {
-            title: 'Databases',
-            skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Supabase']
+            title: 'Frameworks & Libraries',
+            skills: ['React', 'Node.js', 'AngularJS', 'Express.js', 'Flask', 'Django']
         },
         {
-            title: 'AI / Machine Learning',
-            skills: ['TensorFlow', 'Keras', 'Scikit-learn', 'Deep Learning', 'CNN', 'Data Analysis']
+            title: 'Machine Learning & AI',
+            skills: ['TensorFlow', 'pandas', 'scikit-learn', 'Data Preprocessing', 'Model Training']
+        },
+        {
+            title: 'Databases & Cloud',
+            skills: ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB', 'Supabase']
         },
         {
             title: 'Tools & Platforms',
-            skills: ['Git', 'GitHub', 'Postman', 'VS Code', 'Docker', 'Agile']
+            skills: ['Git', 'GitHub', 'Pytest', 'Postman']
         }
     ];
 

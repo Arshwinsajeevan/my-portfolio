@@ -17,13 +17,10 @@ const About = () => {
                     </h2>
                     <div className="space-y-6 text-lg text-[var(--text-muted)] leading-relaxed">
                         <p>
-                            I am a motivated <strong className="text-[var(--text-color)] font-medium">Software Developer</strong> with a strong foundation in Python, Full-Stack Development, AI, and Machine Learning.
+                            I am a <strong className="text-[var(--text-color)] font-medium">software developer</strong> with hands-on experience in Python, React, and full-stack development, focused on building scalable, maintainable, and production-ready applications. My work includes designing and consuming REST APIs, integrating databases, troubleshooting and debugging issues, and collaborating within Agile development environments.
                         </p>
                         <p>
-                            Proficient in building scalable, data-driven applications, I enjoy preparing and analyzing data, developing predictive models, and debugging efficiently. I am experienced in using Git for version control and collaborating in Agile environments.
-                        </p>
-                        <p>
-                            My goal is to leverage technology to solve real-world problems, constantly learning and adapting to new tools and frameworks to deliver high-quality solutions.
+                            I also have practical exposure to AI/ML concepts through real-world project work. I enjoy learning new technologies quickly, improving system design, and writing clean, reliable code that delivers real value.
                         </p>
                     </div>
                 </motion.div>

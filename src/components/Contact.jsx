@@ -54,7 +54,7 @@ const Contact = () => {
                             </div>
                             <div>
                                 <p className="text-xs text-[var(--text-muted)] mb-1">LinkedIn</p>
-                                <a href="https://linkedin.com/in/arshwin-sajeevan" target="" rel="noopener noreferrer" className="text-base font-medium text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors">
+                                <a href="https://www.linkedin.com/in/arshwin-sajeevan/" target="_blank" rel="noopener noreferrer" className="text-base font-medium text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors">
                                     Arshwin Sajeevan
                                 </a>
                             </div>
@@ -66,8 +66,8 @@ const Contact = () => {
                             </div>
                             <div>
                                 <p className="text-xs text-[var(--text-muted)] mb-1">GitHub</p>
-                                <a href="https://github.com/arshwin-s" target="_blank" rel="noopener noreferrer" className="text-base font-medium text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors">
-                                    arshwin-s
+                                <a href="https://github.com/Arshwinsajeevan" target="_blank" rel="noopener noreferrer" className="text-base font-medium text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors">
+                                    Arshwinsajeevan
                                 </a>
                             </div>
                         </div>

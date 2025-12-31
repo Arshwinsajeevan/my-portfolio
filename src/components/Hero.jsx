@@ -4,9 +4,9 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight } from 'react-icons/fa';
 
 const Hero = () => {
     const stats = [
-        { label: 'Years of Experience', value: '3+' },
-        { label: 'Completed Projects', value: '15+' },
-        { label: 'Hours Coded', value: '10K+' },
+        { label: 'Experience', value: 'Intern' },
+        { label: 'Projects', value: '5+' },
+        { label: 'Focus', value: 'Full Stack' },
     ];
 
     return (

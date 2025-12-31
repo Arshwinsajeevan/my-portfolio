@@ -8,9 +8,10 @@ const Experience = () => {
             role: 'Full Stack Developer Intern',
             duration: 'Feb 2025 - May 2025',
             description: [
-                'Developed a construction website using React and Django, improving load speed by 30%.',
-                'Utilized Git and GitHub for version control and collaborative development in an Agile environment.',
-                'Contributed to UI/UX design and responsive layout development.',
+                'Developed a custom website and CRM for a construction firm using Python, Django, and React.',
+                'Designed and maintained REST APIs.',
+                'Implemented MySQL databases and optimized query performance for large datasets.',
+                'Used Git and GitHub for version control and team collaboration.',
             ],
         },
     ];
