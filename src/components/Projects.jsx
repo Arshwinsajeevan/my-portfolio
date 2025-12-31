@@ -24,7 +24,7 @@ const Projects = () => {
                 'Full-stack architecture with Prisma and SQLite.'
             ],
             tags: ['Node.js', 'TypeScript', 'Prisma'],
-            github: 'https://github.com/Arshwinsajeevan',
+            github: 'https://github.com/Arshwinsajeevan/AI-chat.git',
         },
         {
             title: 'Rustique',
@@ -46,7 +46,7 @@ const Projects = () => {
                 'Client-side processing with Canvas.'
             ],
             tags: ['React', 'TensorFlow.js', 'Canvas'],
-            github: '#',
+            github: 'https://github.com/Arshwinsajeevan/NL-Image-Editor.git',
         },
         {
             title: 'Weather App',
@@ -57,7 +57,7 @@ const Projects = () => {
                 'Clean UI with API integration.'
             ],
             tags: ['JavaScript', 'API', 'HTML/CSS'],
-            github: '#',
+            github: 'https://github.com/Arshwinsajeevan/',
         },
         {
             title: 'Data Analytics',
@@ -68,7 +68,7 @@ const Projects = () => {
                 'Automated analytical report generation.'
             ],
             tags: ['Python', 'Scrapy', 'Pandas'],
-            github: '#',
+            github: 'https://github.com/Arshwinsajeevan/scrapy-data-analytics-platform.git',
         },
     ];
 
