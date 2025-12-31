@@ -5,72 +5,53 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin } from 'react
 const Contact = () => {
     return (
         <section id="contact" className="py-32 bg-[var(--bg-color)] relative overflow-hidden">
-            {/* Background Glow */}
-            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[var(--accent-color)] rounded-full blur-[150px] opacity-10 pointer-events-none" />
+            {/* Background Gradient */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-gradient-to-t from-[var(--accent-color)]/10 to-transparent pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="container mx-auto px-6 relative z-10 text-center">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="max-w-4xl mx-auto text-center"
+                    transition={{ duration: 0.8 }}
+                    className="max-w-4xl mx-auto"
                 >
-                    <h2 className="text-5xl md:text-6xl font-heading font-bold mb-8 text-[var(--text-color)]">
-                        Get in <span className="text-[var(--accent-color)]">Touch</span>
+                    <h2 className="text-5xl md:text-7xl font-heading font-bold mb-8 text-[var(--text-color)]">
+                        Let's <span className="text-[var(--accent-color)]">Connect</span>
                     </h2>
-                    <p className="text-[var(--text-muted)] text-lg mb-16 leading-relaxed max-w-2xl mx-auto">
-                        I'm always open to new opportunities, collaborations, or just a friendly chat. Feel free to reach out through any of the channels below!
+                    <p className="text-[var(--text-muted)] text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+                        I'm currently seeking full-time opportunities to contribute my skills to innovative projects.
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
-                        <div className="flex flex-col items-center gap-4 group">
-                            <div className="p-5 rounded-2xl bg-[var(--card-bg)] text-[var(--accent-color)] text-2xl border border-[var(--border-color)] group-hover:border-[var(--accent-color)] transition-colors duration-300">
-                                <FaEnvelope />
-                            </div>
-                            <div>
-                                <p className="text-xs text-[var(--text-muted)] mb-1">Email Me</p>
-                                <a href="mailto:arshwin619@gmail.com" className="text-base font-medium text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors">
-                                    arshwin619@gmail.com
-                                </a>
-                            </div>
-                        </div>
+                    <div className="flex flex-col md:flex-row justify-center gap-6 mb-12">
+                        <a
+                            href="mailto:arshwin619@gmail.com"
+                            className="px-8 py-4 bg-[var(--text-color)] text-[var(--bg-color)] font-bold text-lg rounded-full hover:opacity-90 transition-all shadow-lg flex items-center justify-center gap-3"
+                        >
+                            <FaEnvelope /> arshwin619@gmail.com
+                        </a>
+                        <a
+                            href="tel:+917593071195"
+                            className="px-8 py-4 bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-color)] font-bold text-lg rounded-full hover:border-[var(--accent-color)] transition-all flex items-center justify-center gap-3"
+                        >
+                            <FaPhone /> +91 7593071195
+                        </a>
+                    </div>
 
-                        <div className="flex flex-col items-center gap-4 group">
-                            <div className="p-5 rounded-2xl bg-[var(--card-bg)] text-[var(--accent-color)] text-2xl border border-[var(--border-color)] group-hover:border-[var(--accent-color)] transition-colors duration-300">
-                                <FaPhone />
-                            </div>
-                            <div>
-                                <p className="text-xs text-[var(--text-muted)] mb-1">Call Me</p>
-                                <a href="tel:+917593071195" className="text-base font-medium text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors">
-                                    +91 7593071195
-                                </a>
-                            </div>
+                    <div className="mb-16">
+                        <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-muted)]">
+                            <FaMapMarkerAlt className="text-[var(--accent-color)]" />
+                            <span>Kannur, Kerala, India</span>
                         </div>
+                    </div>
 
-                        <div className="flex flex-col items-center gap-4 group">
-                            <div className="p-5 rounded-2xl bg-[var(--card-bg)] text-[var(--accent-color)] text-2xl border border-[var(--border-color)] group-hover:border-[var(--accent-color)] transition-colors duration-300">
-                                <FaLinkedin />
-                            </div>
-                            <div>
-                                <p className="text-xs text-[var(--text-muted)] mb-1">LinkedIn</p>
-                                <a href="https://www.linkedin.com/in/arshwin-sajeevan/" target="_blank" rel="noopener noreferrer" className="text-base font-medium text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors">
-                                    Arshwin Sajeevan
-                                </a>
-                            </div>
-                        </div>
-
-                        <div className="flex flex-col items-center gap-4 group">
-                            <div className="p-5 rounded-2xl bg-[var(--card-bg)] text-[var(--accent-color)] text-2xl border border-[var(--border-color)] group-hover:border-[var(--accent-color)] transition-colors duration-300">
-                                <FaGithub />
-                            </div>
-                            <div>
-                                <p className="text-xs text-[var(--text-muted)] mb-1">GitHub</p>
-                                <a href="https://github.com/Arshwinsajeevan" target="_blank" rel="noopener noreferrer" className="text-base font-medium text-[var(--text-color)] hover:text-[var(--accent-color)] transition-colors">
-                                    Arshwinsajeevan
-                                </a>
-                            </div>
-                        </div>
+                    <div className="flex justify-center gap-8">
+                        <a href="https://www.linkedin.com/in/arshwin-sajeevan/" target="_blank" rel="noreferrer" className="text-[var(--text-muted)] hover:text-[var(--accent-color)] transition-colors transform hover:scale-110">
+                            <FaLinkedin size={32} />
+                        </a>
+                        <a href="https://github.com/Arshwinsajeevan" target="_blank" rel="noreferrer" className="text-[var(--text-muted)] hover:text-[var(--accent-color)] transition-colors transform hover:scale-110">
+                            <FaGithub size={32} />
+                        </a>
                     </div>
                 </motion.div>
             </div>

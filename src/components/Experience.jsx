@@ -18,49 +18,44 @@ const Experience = () => {
 
     return (
         <section id="experience" className="py-32 bg-[var(--bg-color)]">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 max-w-7xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-10"
+                    className="mb-20"
                 >
-                    <h2 className="text-5xl md:text-7xl font-serif font-medium mb-6 text-[var(--text-color)] tracking-tight">
-                        Experience
-                    </h2>
-                    <div className="h-[1px] w-full bg-[var(--border-color)]"></div>
+                    <span className="text-[var(--accent-color)] font-bold tracking-widest uppercase text-sm">Career Path</span>
+                    <h2 className="text-4xl md:text-5xl font-heading font-bold mt-2 text-[var(--text-color)]">Experience</h2>
                 </motion.div>
 
-                <div className="max-w-3xl">
+                <div className="relative border-l-2 border-[var(--border-color)] ml-3 md:ml-6 space-y-16">
                     {experiences.map((exp, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
-                            className="border-l border-[var(--border-color)] pl-8 py-4 relative"
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="relative pl-8 md:pl-12"
                         >
-                            <span className="absolute left-[-5px] top-6 w-2.5 h-2.5 bg-[var(--text-color)] rounded-full"></span>
+                            {/* Timestamp Dot */}
+                            <span className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-[var(--accent-color)] ring-4 ring-[var(--bg-color)]"></span>
 
-                            <div className="flex flex-col md:flex-row md:items-baseline gap-4 mb-4">
-                                <h3 className="text-2xl font-serif text-[var(--text-color)]">
-                                    {exp.role}
-                                </h3>
-                                <span className="font-mono text-sm text-[var(--text-muted)]">
-                                    @ {exp.company}
+                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                                <h3 className="text-2xl font-bold text-[var(--text-color)]">{exp.role}</h3>
+                                <span className="text-sm font-mono text-[var(--text-muted)] bg-[var(--card-bg)] px-3 py-1 rounded-full border border-[var(--border-color)] mt-2 sm:mt-0 w-fit">
+                                    {exp.duration}
                                 </span>
                             </div>
 
-                            <span className="inline-block font-mono text-xs text-[var(--text-color)] border border-[var(--border-color)] px-2 py-1 mb-6">
-                                {exp.duration}
-                            </span>
+                            <h4 className="text-lg font-medium text-[var(--accent-color)] mb-6">{exp.company}</h4>
 
-                            <ul className="space-y-4">
+                            <ul className="space-y-3">
                                 {exp.description.map((item, idx) => (
-                                    <li key={idx} className="text-[var(--text-muted)] text-sm md:text-base leading-relaxed font-mono">
-                                        {`> ${item}`}
+                                    <li key={idx} className="text-[var(--text-muted)] leading-relaxed flex items-start">
+                                        <span className="mr-3 mt-2 w-1.5 h-1.5 bg-[var(--text-muted)] rounded-full shrink-0"></span>
+                                        {item}
                                     </li>
                                 ))}
                             </ul>

@@ -5,28 +5,33 @@
 @tailwind utilities;
 
 :root {
-    /* Light Mode (Clean & Sharp) */
+    /* Light Mode (Clean, High-End) */
     --bg-color: #ffffff;
-    --card-bg: #f3f4f6;
-    --text-color: #111827;
-    --text-muted: #6b7280;
-    --border-color: #e5e7eb;
-    --accent-color: #2563eb;
-    --glow-color: rgba(37, 99, 235, 0.1);
+    --card-bg: #f8fafc;
+    /* Slate-50 */
+    --text-color: #0f172a;
+    /* Slate-900 */
+    --text-muted: #64748b;
+    /* Slate-500 */
+    --border-color: #e2e8f0;
+    /* Slate-200 */
+    --accent-color: #0ea5e9;
+    /* Sky-500 - Professional Blue */
+    --glow-color: rgba(14, 165, 233, 0.1);
 }
 
 [data-theme='dark'] {
-    /* Dark Mode (Deep Navy/Black) */
+    /* Dark Mode (Deep, Professional, Matte) */
     --bg-color: #020617;
-    /* Slate-950 */
-    --card-bg: #0f172a;
-    /* Slate-900 */
+    /* Slate-950 - Deepest Blue/Black */
+    --card-bg: rgba(30, 41, 59, 0.5);
+    /* Slate-800 with opacity */
     --text-color: #f8fafc;
     /* Slate-50 */
     --text-muted: #94a3b8;
     /* Slate-400 */
-    --border-color: #1e293b;
-    /* Slate-800 */
+    --border-color: rgba(148, 163, 184, 0.1);
+    /* Subtle border */
     --accent-color: #38bdf8;
     /* Sky-400 */
     --glow-color: rgba(56, 189, 248, 0.15);

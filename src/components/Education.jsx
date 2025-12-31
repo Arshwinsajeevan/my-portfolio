@@ -10,56 +10,53 @@ const Education = () => {
             percentage: '76%',
         },
         {
-            degree: 'Bachelor of Computer Science',
-            institution: 'Mahatma Gandhi College, Kannur, Kerala',
-            duration: 'Graduated', // Or put year if known, but resume just says degree
+            degree: 'MEA(R)N - Full Stack Web Development',
+            institution: 'Luminar Techno Lab, Kochi, Kerala',
+            duration: '2022',
+            percentage: 'Certification',
+        },
+        {
+            degree: 'Bachelor’s in Computer Science',
+            institution: 'Mahatma Gandhi College',
+            duration: '2019 - 2022',
             percentage: '72%',
         },
     ];
 
     return (
         <section id="education" className="py-24 bg-[var(--bg-color)]">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 max-w-7xl">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-12"
+                    className="mb-20"
                 >
-                    <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6 text-[var(--text-color)]">
-                        Education
-                    </h2>
-                    <div className="h-[1px] w-24 bg-[var(--accent-color)]"></div>
+                    <span className="text-[var(--accent-color)] font-bold tracking-widest uppercase text-sm">Academic Background</span>
+                    <h2 className="text-4xl md:text-5xl font-heading font-bold mt-2 text-[var(--text-color)]">Education</h2>
                 </motion.div>
 
-                <div className="space-y-8 max-w-4xl">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {education.map((edu, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
-                            className="bg-[var(--card-bg)] p-8 rounded-3xl border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-all duration-300"
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            className="p-8 rounded-3xl bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-all duration-300 group"
                         >
-                            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                                <div>
-                                    <h3 className="text-2xl font-bold text-[var(--text-color)] mb-2">
-                                        {edu.degree}
-                                    </h3>
-                                    <p className="text-lg text-[var(--text-muted)] mb-2">
-                                        {edu.institution}
-                                    </p>
-                                    <div className="flex items-center gap-4 mt-4">
-                                        <span className="px-3 py-1 text-sm rounded-full bg-[var(--bg-color)] border border-[var(--border-color)] text-[var(--text-muted)]">
-                                            Percentage: {edu.percentage}
-                                        </span>
-                                    </div>
-                                </div>
-                                <span className="inline-block px-4 py-2 bg-[var(--accent-color)]/10 text-[var(--accent-color)] rounded-full text-sm font-medium self-start">
-                                    {edu.duration}
-                                </span>
+                            <span className="inline-block px-3 py-1 mb-6 text-xs font-mono rounded-full bg-[var(--bg-color)] text-[var(--text-muted)] border border-[var(--border-color)]">
+                                {edu.duration}
+                            </span>
+                            <h3 className="text-xl font-bold text-[var(--text-color)] mb-2 group-hover:text-[var(--accent-color)] transition-colors">
+                                {edu.degree}
+                            </h3>
+                            <p className="text-[var(--text-muted)] mb-4 leading-relaxed">
+                                {edu.institution}
+                            </p>
+                            <div className="text-sm font-medium text-[var(--text-color)]">
+                                Score: <span className="text-[var(--accent-color)]">{edu.percentage}</span>
                             </div>
                         </motion.div>
                     ))}
