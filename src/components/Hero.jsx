@@ -1,16 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaArrowRight, FaGithub, FaLinkedin, FaFileDownload, FaServer, FaDatabase, FaCloud, FaLaptopCode } from 'react-icons/fa';
+import { FaArrowRight, FaGithub, FaLinkedin, FaFileDownload } from 'react-icons/fa';
 import { personalInfo } from '../data/portfolioData';
 
 const Hero = () => {
-  const pipelineFlow = [
-    { label: 'Frontend', tech: 'React / Next.js', icon: <FaLaptopCode size={14} /> },
-    { label: 'API Layer', tech: 'FastAPI / REST', icon: <FaServer size={14} /> },
-    { label: 'Database', tech: 'PostgreSQL', icon: <FaDatabase size={14} /> },
-    { label: 'Cloud Compute', tech: 'AWS EC2', icon: <FaCloud size={14} /> },
-  ];
 
   return (
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-16 overflow-hidden">
@@ -55,24 +49,6 @@ const Hero = () => {
             <p className="text-xs sm:text-base text-[var(--text-muted)] max-w-2xl mx-auto pt-1 sm:pt-2 leading-relaxed">
               {personalInfo.description}
             </p>
-          </motion.div>
-
-          {/* Technical Stack Line */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 text-xs font-mono"
-          >
-            <span className="text-[var(--text-muted-light)] uppercase tracking-wider text-[10px] sm:text-[11px]">Primary Stack:</span>
-            {personalInfo.techStackSummary.map((tech) => (
-              <span
-                key={tech}
-                className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-color)] text-[11px] sm:text-xs font-medium"
-              >
-                {tech}
-              </span>
-            ))}
           </motion.div>
 
           {/* Primary Action Buttons */}
@@ -127,45 +103,6 @@ const Hero = () => {
               >
                 <FaLinkedin size={16} />
               </a>
-            </div>
-          </motion.div>
-
-          {/* Code to Production Flow Micro-Visual */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-12 sm:mt-16 w-full max-w-3xl"
-          >
-            <div className="p-3.5 sm:p-5 rounded-2xl bg-[var(--card-bg)]/80 border border-[var(--border-color)] backdrop-blur-sm shadow-sm">
-              <div className="flex items-center justify-between pb-3 mb-3 border-b border-[var(--border-color-light)]">
-                <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)] truncate">
-                  <span className="w-2 h-2 rounded-full bg-[var(--accent-color)] shrink-0"></span>
-                  <span className="font-semibold text-[var(--text-color)] uppercase tracking-wider">System Pipeline</span>
-                  <span className="hidden sm:inline text-[var(--text-muted-light)]">|</span>
-                  <span className="hidden sm:inline">End-to-End Architecture</span>
-                </div>
-                <Link to="/experience" className="text-[11px] font-mono text-[var(--accent-color)] hover:underline flex items-center gap-1 shrink-0 ml-2">
-                  <span>View Track</span>
-                  <FaArrowRight size={9} />
-                </Link>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-                {pipelineFlow.map((step, idx) => (
-                  <div
-                    key={step.label}
-                    className="relative flex flex-col p-2.5 sm:p-3 rounded-xl bg-[var(--bg-color)] border border-[var(--border-color-light)] hover:border-[var(--accent-color)] transition-all text-left group"
-                  >
-                    <div className="flex items-center justify-between text-[var(--accent-color)] mb-1">
-                      <span className="p-1 sm:p-1.5 rounded-lg bg-[var(--card-bg)]">{step.icon}</span>
-                      <span className="text-[10px] font-mono text-[var(--text-muted-light)]">0{idx + 1}</span>
-                    </div>
-                    <span className="text-xs font-semibold text-[var(--text-color)] truncate">{step.label}</span>
-                    <span className="text-[10px] sm:text-[11px] font-mono text-[var(--text-muted)] mt-0.5 truncate">{step.tech}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </motion.div>
         </div>
