@@ -1,84 +1,86 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaCode, FaServer, FaBrain, FaDatabase, FaTools } from 'react-icons/fa';
+import { skillCategories } from '../data/portfolioData';
+import { FaLaptopCode, FaServer, FaDatabase, FaCloud, FaTools, FaCogs, FaArrowRight } from 'react-icons/fa';
 
 const Skills = () => {
-    const skillCategories = [
-        {
-            title: 'Programming Languages',
-            icon: <FaCode size={24} />,
-            skills: ['Python', 'JavaScript', 'HTML', 'CSS']
-        },
-        {
-            title: 'Frameworks & Libraries',
-            icon: <FaServer size={24} />,
-            skills: ['React', 'Node.js', 'AngularJS', 'Express.js', 'Flask', 'Django']
-        },
-        {
-            title: 'Machine Learning & AI',
-            icon: <FaBrain size={24} />,
-            skills: ['TensorFlow', 'pandas', 'scikit-learn', 'Data Preprocessing', 'Model Training']
-        },
-        {
-            title: 'Databases & Cloud',
-            icon: <FaDatabase size={24} />,
-            skills: ['MySQL', 'PostgreSQL', 'SQLite', 'MongoDB', 'Supabase']
-        },
-        {
-            title: 'Tools & Platforms',
-            icon: <FaTools size={24} />,
-            skills: ['Git', 'GitHub', 'Pytest', 'Postman']
-        }
-    ];
+  const categoryIcons = [
+    <FaLaptopCode size={15} />,
+    <FaServer size={15} />,
+    <FaDatabase size={15} />,
+    <FaCloud size={15} />,
+    <FaTools size={15} />,
+    <FaCogs size={15} />,
+  ];
 
-    return (
-        <section id="skills" className="py-20 bg-[var(--bg-color)]">
-            <div className="container mx-auto px-6 max-w-7xl">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-16"
-                >
-                    <span className="text-[var(--accent-color)] font-bold tracking-widest uppercase text-sm">Expertise</span>
-                    <h2 className="text-4xl md:text-5xl font-heading font-bold mt-2 text-[var(--text-color)]">Technical Arsenal</h2>
-                </motion.div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {skillCategories.map((category, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.1 }}
-                            className="group relative p-8 bg-gradient-to-b from-[var(--card-bg)] to-[var(--bg-color)] rounded-3xl border border-[var(--border-color)] hover:border-[var(--accent-color)]/50 transition-all duration-300 hover:shadow-[0_0_30px_-10px_var(--accent-color)]/20 h-full"
-                        >
-                            <div className="flex items-center gap-4 mb-6 pb-4 border-b border-[var(--border-color)]/50 group-hover:border-[var(--accent-color)]/20 transition-colors">
-                                <span className="p-3 rounded-xl bg-[var(--accent-color)]/10 text-[var(--accent-color)] group-hover:bg-[var(--accent-color)] group-hover:text-[var(--bg-color)] transition-all duration-300">
-                                    {category.icon}
-                                </span>
-                                <h3 className="text-xl font-bold text-[var(--text-color)]">
-                                    {category.title}
-                                </h3>
-                            </div>
-
-                            <div className="flex flex-wrap gap-2.5">
-                                {category.skills.map((skill, idx) => (
-                                    <span
-                                        key={idx}
-                                        className="px-3 py-1.5 text-sm font-medium text-[var(--text-muted)] bg-[var(--bg-color)] border border-[var(--border-color)] rounded-lg group-hover:text-[var(--text-color)] group-hover:border-[var(--accent-color)]/30 transition-all duration-300 cursor-default"
-                                    >
-                                        {skill}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+  return (
+    <section id="skills" className="py-20 bg-[var(--bg-color)] relative">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-dim)] text-[var(--accent-color)] text-xs font-mono font-medium mb-2.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-color)]"></span>
+              Core Tooling
             </div>
-        </section>
-    );
+            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[var(--text-color)] tracking-tight">
+              SKILLS & CAPABILITIES
+            </h2>
+            <p className="text-sm text-[var(--text-muted)] mt-1.5 max-w-xl">
+              Languages, frameworks, databases, and deployment tooling used across production applications.
+            </p>
+          </div>
+
+          <Link
+            to="/skills"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--accent-color)] text-xs font-mono text-[var(--text-color)] transition-all shrink-0 w-fit"
+          >
+            <span>Explore All Skills</span>
+            <FaArrowRight size={10} />
+          </Link>
+        </div>
+
+        {/* Categorized Skills Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {skillCategories.map((cat, index) => (
+            <motion.div
+              key={cat.category}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: index * 0.06 }}
+              className="p-5 rounded-2xl bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-all flex flex-col justify-between"
+            >
+              <div>
+                <div className="flex items-center gap-2.5 pb-3 mb-3 border-b border-[var(--border-color-light)]">
+                  <span className="p-1.5 rounded-lg bg-[var(--bg-color)] border border-[var(--border-color-light)] text-[var(--accent-color)]">
+                    {categoryIcons[index]}
+                  </span>
+                  <div>
+                    <h3 className="text-sm font-heading font-bold text-[var(--text-color)] uppercase tracking-wider">
+                      {cat.category}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-2.5 py-1 text-xs font-mono font-medium rounded-lg bg-[var(--bg-color)] border border-[var(--border-color-light)] text-[var(--text-color)] hover:border-[var(--accent-color)] hover:text-[var(--accent-color)] transition-all cursor-default"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Skills;

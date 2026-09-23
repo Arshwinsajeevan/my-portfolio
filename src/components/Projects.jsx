@@ -1,148 +1,125 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaArrowRight, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaArrowRight } from 'react-icons/fa';
+import { personalProjects } from '../data/portfolioData';
 
 const Projects = () => {
-    const projects = [
-        {
-            title: 'CropCare',
-            category: 'AI System',
-            description: [
-                'CNN-based system for detecting plant diseases from leaf images.',
-                'Applied deep learning models for image classification.',
-                'Integrated Supabase for data storage and alert notifications.'
-            ],
-            tags: ['Python', 'TensorFlow', 'Supabase'],
-            github: 'https://github.com/Arshwinsajeevan/CropCare.git',
-        },
-        {
-            title: 'AI Live Chat',
-            category: 'LLM Support',
-            description: [
-                'Customer support agent using Node.js & React.',
-                'LLM integration with session persistence.',
-                'Full-stack architecture with Prisma and SQLite.'
-            ],
-            tags: ['Node.js', 'TypeScript', 'Prisma'],
-            github: 'https://github.com/Arshwinsajeevan/AI-chat.git',
-        },
-        {
-            title: 'Rustique',
-            category: 'Marketplace',
-            description: [
-                'MERN platform for antique trading.',
-                'Admin-verified listings and secure transactions.',
-                'React frontend with smooth user interactions.'
-            ],
-            tags: ['MongoDB', 'Express', 'React'],
-            github: 'https://github.com/Arshwinsajeevan/Rustique.git',
-        },
-        {
-            title: 'NL Image Studio',
-            category: 'Editor',
-            description: [
-                'Browser-based image editor with natural language commands.',
-                'Real-time segmentation using BodyPix.',
-                'Client-side processing with Canvas.'
-            ],
-            tags: ['React', 'TensorFlow.js', 'Canvas'],
-            github: 'https://github.com/Arshwinsajeevan/NL-Image-Editor.git',
-        },
-        {
-            title: 'Weather App',
-            category: 'Web App',
-            description: [
-                'Real-time weather forecasting tool.',
-                'Geolocation and search capabilities.',
-                'Clean UI with API integration.'
-            ],
-            tags: ['JavaScript', 'API', 'HTML/CSS'],
-            github: 'https://github.com/Arshwinsajeevan/',
-        },
-        {
-            title: 'Data Analytics',
-            category: 'Analytics',
-            description: [
-                'Web scraping pipeline using Scrapy.',
-                'Data aggregation and cleaning with Pandas.',
-                'Automated analytical report generation.'
-            ],
-            tags: ['Python', 'Scrapy', 'Pandas'],
-            github: 'https://github.com/Arshwinsajeevan/scrapy-data-analytics-platform.git',
-        },
-    ];
+  // Show top 3 curated personal projects on home
+  const previewProjects = personalProjects.slice(0, 3);
 
-    return (
-        <section id="projects" className="py-32 bg-[var(--bg-color)]">
-            <div className="container mx-auto px-6 max-w-7xl">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6"
-                >
-                    <div>
-                        <span className="text-[var(--accent-color)] font-bold tracking-widest uppercase text-sm">Selected Work</span>
-                        <h2 className="text-4xl md:text-5xl font-heading font-bold mt-2 text-[var(--text-color)]">Projects</h2>
-                    </div>
-                </motion.div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.05 }}
-                            className="group relative p-8 bg-[var(--card-bg)] rounded-3xl border border-[var(--border-color)] hover:border-[var(--accent-color)]/30 transition-all duration-500 hover:bg-[var(--card-bg)]/80 flex flex-col justify-between h-auto min-h-[350px]"
-                        >
-                            <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <a
-                                    href={project.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="p-2 bg-[var(--text-color)] text-[var(--bg-color)] rounded-full hover:scale-110 transition-transform flex items-center justify-center"
-                                >
-                                    <FaArrowRight size={14} />
-                                </a>
-                            </div>
-
-                            <div>
-                                <div className="flex items-center gap-3 mb-4">
-                                    <span className="text-xs font-mono px-2 py-1 rounded border border-[var(--border-color)] text-[var(--text-muted)] group-hover:border-[var(--accent-color)] group-hover:text-[var(--accent-color)] transition-colors">
-                                        {project.category}
-                                    </span>
-                                </div>
-                                <h3 className="text-2xl font-bold text-[var(--text-color)] mb-4 leading-tight group-hover:text-[var(--accent-color)] transition-colors">
-                                    {project.title}
-                                </h3>
-
-                                <ul className="space-y-2 mb-6">
-                                    {project.description.map((point, i) => (
-                                        <li key={i} className="text-[var(--text-muted)] text-sm leading-relaxed flex items-start gap-2">
-                                            <span className="mt-1.5 w-1 h-1 rounded-full bg-[var(--accent-color)] shrink-0 opacity-60"></span>
-                                            {point}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-
-                            <div className="pt-6 mt-auto border-t border-[var(--border-color)]/50 group-hover:border-[var(--accent-color)]/20 transition-colors">
-                                <div className="flex flex-wrap gap-2">
-                                    {project.tags.map((tag, idx) => (
-                                        <span key={idx} className="text-xs font-medium text-[var(--text-muted)]">
-                                            #{tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
+  return (
+    <section id="projects" className="py-20 bg-[var(--bg-color)] relative">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-dim)] text-[var(--accent-color)] text-xs font-mono font-medium mb-2.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-color)]"></span>
+              Independent Builds
             </div>
-        </section>
-    );
+            <h2 className="text-3xl sm:text-4xl font-heading font-extrabold text-[var(--text-color)] tracking-tight">
+              PERSONAL PROJECTS
+            </h2>
+            <p className="text-sm text-[var(--text-muted)] mt-1.5 max-w-xl">
+              Full-stack platforms, machine learning integrations, and developer tools.
+            </p>
+          </div>
+
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--accent-color)] text-xs font-mono text-[var(--text-color)] transition-all shrink-0 w-fit"
+          >
+            <span>View All 6 Projects</span>
+            <FaArrowRight size={10} />
+          </Link>
+        </div>
+
+        {/* Curated Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {previewProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="p-6 rounded-3xl bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="text-xs font-mono text-[var(--accent-color)] uppercase tracking-wider font-medium truncate">
+                    {project.category}
+                  </span>
+
+                  <div className="flex items-center gap-2 shrink-0">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.title} GitHub repository`}
+                        className="p-1.5 text-[var(--text-muted)] hover:text-[var(--text-color)] rounded-lg hover:bg-[var(--bg-color)] transition-all"
+                      >
+                        <FaGithub size={13} />
+                      </a>
+                    )}
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${project.title} Live Application`}
+                        className="p-1.5 text-[var(--text-muted)] hover:text-[var(--accent-color)] rounded-lg hover:bg-[var(--bg-color)] transition-all"
+                      >
+                        <FaExternalLinkAlt size={11} />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <h3 className="text-xl font-heading font-bold text-[var(--text-color)] group-hover:text-[var(--accent-color)] transition-colors">
+                  {project.shortTitle || project.title}
+                </h3>
+
+                <p className="text-xs text-[var(--text-muted)] mt-2 leading-relaxed line-clamp-3">
+                  {project.description}
+                </p>
+              </div>
+
+              <div className="pt-5 mt-6 border-t border-[var(--border-color-light)]">
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {project.technologies.slice(0, 3).map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-0.5 text-[11px] font-mono rounded bg-[var(--bg-color)] border border-[var(--border-color-light)] text-[var(--text-muted)]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-[10px] font-mono text-[var(--text-muted-light)] self-center pl-1">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+
+                {project.hasDetail && (
+                  <Link
+                    to={`/projects/${project.slug}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono text-[var(--accent-color)] hover:underline pt-1"
+                  >
+                    <span>Read Case Study</span>
+                    <FaArrowRight size={10} />
+                  </Link>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Projects;

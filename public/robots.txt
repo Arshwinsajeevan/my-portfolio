@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arshwin-sajeevan.vercel.app/sitemap.xml

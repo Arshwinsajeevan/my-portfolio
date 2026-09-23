@@ -1,62 +1,111 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaGithub, FaLinkedin, FaFileDownload, FaCopy, FaCheck, FaArrowRight } from 'react-icons/fa';
+import { personalInfo } from '../data/portfolioData';
 
 const Contact = () => {
-    return (
-        <section id="contact" className="py-32 bg-[var(--bg-color)] relative overflow-hidden">
-            {/* Background Gradient */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-gradient-to-t from-[var(--accent-color)]/10 to-transparent pointer-events-none" />
+  const [copied, setCopied] = useState(false);
 
-            <div className="container mx-auto px-6 relative z-10 text-center">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="max-w-4xl mx-auto"
-                >
-                    <h2 className="text-5xl md:text-7xl font-heading font-bold mb-8 text-[var(--text-color)]">
-                        Let's <span className="text-[var(--accent-color)]">Connect</span>
-                    </h2>
-                    <p className="text-[var(--text-muted)] text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
-                        I'm currently seeking full-time opportunities to contribute my skills to innovative projects.
-                    </p>
+  const copyEmail = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
 
-                    <div className="flex flex-col md:flex-row justify-center gap-6 mb-12">
-                        <a
-                            href="mailto:arshwin619@gmail.com"
-                            className="px-8 py-4 bg-[var(--text-color)] text-[var(--bg-color)] font-bold text-lg rounded-full hover:opacity-90 transition-all shadow-lg flex items-center justify-center gap-3"
-                        >
-                            <FaEnvelope /> arshwin619@gmail.com
-                        </a>
-                        <a
-                            href="tel:+917593071195"
-                            className="px-8 py-4 bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-color)] font-bold text-lg rounded-full hover:border-[var(--accent-color)] transition-all flex items-center justify-center gap-3"
-                        >
-                            <FaPhone /> +91 7593071195
-                        </a>
-                    </div>
+  return (
+    <section id="contact" className="py-20 bg-[var(--bg-color)] border-t border-[var(--border-color)] relative">
+      <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+        <div className="p-5 sm:p-12 rounded-3xl bg-[var(--card-bg)] border border-[var(--border-color)] text-center relative overflow-hidden">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent-dim)] text-[var(--accent-color)] text-xs font-mono font-medium mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-color)]"></span>
+            Direct Communication
+          </div>
 
-                    <div className="mb-16">
-                        <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-muted)]">
-                            <FaMapMarkerAlt className="text-[var(--accent-color)]" />
-                            <span>Kannur, Kerala, India</span>
-                        </div>
-                    </div>
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-heading font-extrabold text-[var(--text-color)] tracking-tight">
+            LET'S BUILD SOMETHING USEFUL.
+          </h2>
 
-                    <div className="flex justify-center gap-8">
-                        <a href="https://www.linkedin.com/in/arshwin-sajeevan/" target="_blank" rel="noreferrer" className="text-[var(--text-muted)] hover:text-[var(--accent-color)] transition-colors transform hover:scale-110">
-                            <FaLinkedin size={32} />
-                        </a>
-                        <a href="https://github.com/Arshwinsajeevan" target="_blank" rel="noreferrer" className="text-[var(--text-muted)] hover:text-[var(--accent-color)] transition-colors transform hover:scale-110">
-                            <FaGithub size={32} />
-                        </a>
-                    </div>
-                </motion.div>
+          <p className="text-xs sm:text-base text-[var(--text-muted)] mt-3 max-w-2xl mx-auto leading-relaxed">
+            I'm open to full-time Software Development and Full-Stack opportunities where I can contribute to real-world products and continue growing as an engineer.
+          </p>
+
+          {/* Email Pill & Actions */}
+          <div className="mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 w-full max-w-lg mx-auto">
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="w-full sm:w-auto px-5 py-3 rounded-xl bg-[var(--bg-color)] border border-[var(--border-color)] hover:border-[var(--accent-color)] text-xs sm:text-sm font-heading font-bold text-[var(--text-color)] flex items-center justify-center gap-2.5 transition-all shadow-xs"
+            >
+              <FaEnvelope className="text-[var(--accent-color)] shrink-0" />
+              <span className="truncate">{personalInfo.email}</span>
+            </a>
+
+            <button
+              onClick={copyEmail}
+              type="button"
+              aria-label="Copy email address"
+              className="w-full sm:w-auto px-4 py-3 rounded-xl bg-[var(--bg-color)] border border-[var(--border-color)] hover:border-[var(--accent-color)] text-xs font-mono text-[var(--text-color)] transition-all flex items-center justify-center gap-1.5"
+            >
+              {copied ? (
+                <>
+                  <FaCheck size={11} className="text-emerald-500" />
+                  <span className="text-emerald-500 font-semibold">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <FaCopy size={11} />
+                  <span>Copy Email</span>
+                </>
+              )}
+            </button>
+
+            <Link
+              to="/contact"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[var(--text-color)] text-[var(--bg-color)] text-xs font-mono font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-sm"
+            >
+              <span>Open Contact Form</span>
+              <FaArrowRight size={10} />
+            </Link>
+          </div>
+
+          {/* Details & Socials */}
+          <div className="mt-8 pt-6 sm:pt-8 border-t border-[var(--border-color-light)] flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-mono text-[var(--text-muted)]">
+            <span className="flex items-center gap-1.5">
+              <FaPhone className="text-[var(--accent-color)]" size={12} />
+              <span>{personalInfo.phone}</span>
+            </span>
+
+            <span className="flex items-center gap-1.5">
+              <FaMapMarkerAlt className="text-[var(--accent-color)]" size={12} />
+              <span>{personalInfo.location} · Ready to relocate</span>
+            </span>
+
+            <div className="flex items-center gap-4">
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--text-color)] transition-colors flex items-center gap-1"
+              >
+                <FaGithub size={13} />
+                <span>GitHub</span>
+              </a>
+
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[var(--text-color)] transition-colors flex items-center gap-1"
+              >
+                <FaLinkedin size={13} />
+                <span>LinkedIn</span>
+              </a>
             </div>
-        </section>
-    );
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;

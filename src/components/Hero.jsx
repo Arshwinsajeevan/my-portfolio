@@ -1,75 +1,175 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaArrowRight, FaGithub, FaLinkedin } from "react-icons/fa";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { FaArrowRight, FaGithub, FaLinkedin, FaFileDownload, FaServer, FaDatabase, FaCloud, FaLaptopCode } from 'react-icons/fa';
+import { personalInfo } from '../data/portfolioData';
 
 const Hero = () => {
-  return (
-    <section
-      id="hero"
-      className="min-h-screen flex flex-col justify-center relative overflow-hidden pt-20"
-    >
-      {/* Subtle Background Gradients */}
-      <div className="absolute top-[-20%] right-[-10%] w-[800px] h-[800px] bg-[var(--glow-color)] rounded-full blur-[180px] opacity-40 pointer-events-none" />
-      <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[var(--accent-color)] rounded-full blur-[200px] opacity-10 pointer-events-none" />
+  const pipelineFlow = [
+    { label: 'Frontend', tech: 'React / Next.js', icon: <FaLaptopCode size={14} /> },
+    { label: 'API Layer', tech: 'FastAPI / REST', icon: <FaServer size={14} /> },
+    { label: 'Database', tech: 'PostgreSQL', icon: <FaDatabase size={14} /> },
+    { label: 'Cloud Compute', tech: 'AWS EC2', icon: <FaCloud size={14} /> },
+  ];
 
-      <div className="container mx-auto mt-5 px-6 z-10">
-        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
+  return (
+    <section id="hero" className="relative min-h-[90vh] flex items-center justify-center pt-28 pb-16 overflow-hidden">
+      {/* Subtle technical background grid */}
+      <div className="absolute inset-0 bg-tech-grid opacity-60 pointer-events-none" />
+
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[650px] h-[350px] bg-[var(--glow-color)] blur-[140px] rounded-full pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 max-w-5xl">
+        <div className="flex flex-col items-center text-center">
+          {/* Status badge */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 inline-flex flex-wrap items-center justify-center gap-2 px-3.5 py-1.5 rounded-full border border-[var(--border-color)] bg-[var(--card-bg)] text-[11px] sm:text-xs font-mono text-[var(--text-muted)] max-w-full"
           >
-            <h1 className="text-7xl md:text-8xl lg:text-8xl font-heading font-bold text-[var(--text-color)] mb-6 tracking-tighter">
-              Arshwin <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--text-color)] via-[var(--accent-color)] to-[var(--text-color)]">
-                Sajeevan
-              </span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500 -ml-4"></span>
+            <span className="text-[var(--text-color)] font-medium">Software Developer</span>
+            <span className="text-[var(--text-muted-light)]">/</span>
+            <span>Available for Full-Time Roles</span>
+          </motion.div>
+
+          {/* Name & Headline */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="space-y-4 max-w-4xl"
+          >
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-[var(--text-color)] tracking-tight leading-[1.08]">
+              {personalInfo.name}
             </h1>
 
-            <h2 className="text-xl md:text-3xl font-light text-[var(--text-muted)] mb-8 tracking-wide">
-              Building Scalable Digital Experiences
-            </h2>
-
-            <p className="text-lg text-[var(--text-muted)] max-w-lg mx-auto mb-12 leading-relaxed">
-              I'm a dedicated Software Developer specializing in full-stack applications and
-              AI integration.
+            <p className="text-lg sm:text-2xl md:text-3xl font-light text-[var(--text-muted)] max-w-3xl mx-auto leading-snug">
+              Software Developer building full-stack products{' '}
+              <span className="text-[var(--text-color)] font-normal">from interface to production</span>.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <a
-                href="#projects"
-                className="px-8 py-4 bg-[var(--text-color)] text-[var(--bg-color)] font-bold text-lg rounded-full hover:opacity-90 transition-all transform hover:scale-105 flex items-center gap-3 shadow-lg shadow-[var(--accent-color)]/20"
+            <p className="text-xs sm:text-base text-[var(--text-muted)] max-w-2xl mx-auto pt-1 sm:pt-2 leading-relaxed">
+              {personalInfo.description}
+            </p>
+          </motion.div>
+
+          {/* Technical Stack Line */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 text-xs font-mono"
+          >
+            <span className="text-[var(--text-muted-light)] uppercase tracking-wider text-[10px] sm:text-[11px]">Primary Stack:</span>
+            {personalInfo.techStackSummary.map((tech) => (
+              <span
+                key={tech}
+                className="px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-md bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-color)] text-[11px] sm:text-xs font-medium"
               >
-                View My Work <FaArrowRight size={14} />
+                {tech}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* Primary Action Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto"
+          >
+            <Link
+              to="/projects"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[var(--text-color)] text-[var(--bg-color)] font-semibold text-xs sm:text-sm hover:opacity-90 transition-all flex items-center justify-center gap-2.5 shadow-md shadow-black/10 group"
+            >
+              <span>Explore Work</span>
+              <FaArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+
+            <Link
+              to="/about"
+              className="w-full sm:w-auto px-6 py-3 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-color)] font-medium text-xs sm:text-sm hover:border-[var(--accent-color)] hover:bg-[var(--card-hover-bg)] transition-all flex items-center justify-center"
+            >
+              About Me
+            </Link>
+
+            <a
+              href={personalInfo.resumeUrl}
+              download="Arshwin_Sajeevan_Resume.pdf"
+              className="w-full sm:w-auto px-5 py-3 rounded-xl border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[var(--text-color)] hover:border-[var(--accent-color)] transition-all text-xs sm:text-sm font-mono flex items-center justify-center gap-2"
+            >
+              <FaFileDownload size={13} />
+              <span>Resume</span>
+            </a>
+
+            {/* Social Links */}
+            <div className="flex items-center justify-center gap-2 pt-1 sm:pt-0">
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub Profile"
+                className="p-3 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[var(--text-color)] hover:border-[var(--accent-color)] transition-all"
+              >
+                <FaGithub size={16} />
               </a>
+
               <a
-                href="#contact"
-                className="px-8 py-4 border border-[var(--border-color)] text-[var(--text-color)] font-medium text-lg rounded-full hover:bg-[var(--card-bg)] transition-colors flex items-center gap-3"
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn Profile"
+                className="p-3 rounded-xl bg-[var(--card-bg)] border border-[var(--border-color)] text-[var(--text-muted)] hover:text-[var(--text-color)] hover:border-[var(--accent-color)] transition-all"
               >
-                Contact Me
+                <FaLinkedin size={16} />
               </a>
             </div>
+          </motion.div>
 
-            {/* Social Proof / Checkmarks or simple text below */}
-            <div className="mt-16 flex items-center justify-center gap-8 text-[var(--text-muted)] opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-              {/* Placeholder for future logos or tech stack icons if desired, keeping it clean for now */}
+          {/* Code to Production Flow Micro-Visual */}
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="mt-12 sm:mt-16 w-full max-w-3xl"
+          >
+            <div className="p-3.5 sm:p-5 rounded-2xl bg-[var(--card-bg)]/80 border border-[var(--border-color)] backdrop-blur-sm shadow-sm">
+              <div className="flex items-center justify-between pb-3 mb-3 border-b border-[var(--border-color-light)]">
+                <div className="flex items-center gap-2 text-xs font-mono text-[var(--text-muted)] truncate">
+                  <span className="w-2 h-2 rounded-full bg-[var(--accent-color)] shrink-0"></span>
+                  <span className="font-semibold text-[var(--text-color)] uppercase tracking-wider">System Pipeline</span>
+                  <span className="hidden sm:inline text-[var(--text-muted-light)]">|</span>
+                  <span className="hidden sm:inline">End-to-End Architecture</span>
+                </div>
+                <Link to="/experience" className="text-[11px] font-mono text-[var(--accent-color)] hover:underline flex items-center gap-1 shrink-0 ml-2">
+                  <span>View Track</span>
+                  <FaArrowRight size={9} />
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
+                {pipelineFlow.map((step, idx) => (
+                  <div
+                    key={step.label}
+                    className="relative flex flex-col p-2.5 sm:p-3 rounded-xl bg-[var(--bg-color)] border border-[var(--border-color-light)] hover:border-[var(--accent-color)] transition-all text-left group"
+                  >
+                    <div className="flex items-center justify-between text-[var(--accent-color)] mb-1">
+                      <span className="p-1 sm:p-1.5 rounded-lg bg-[var(--card-bg)]">{step.icon}</span>
+                      <span className="text-[10px] font-mono text-[var(--text-muted-light)]">0{idx + 1}</span>
+                    </div>
+                    <span className="text-xs font-semibold text-[var(--text-color)] truncate">{step.label}</span>
+                    <span className="text-[10px] sm:text-[11px] font-mono text-[var(--text-muted)] mt-0.5 truncate">{step.tech}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-[var(--border-color)] to-[var(--accent-color)]"></div>
-        <span className="text-[10px]  uppercase tracking-[0.2em] text-[var(--text-muted)]">
-          Scroll
-        </span>
-      </motion.div>
     </section>
   );
 };
