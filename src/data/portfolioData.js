@@ -17,29 +17,6 @@ export const personalInfo = {
   techStackSummary: ["React", "Next.js", "FastAPI", "PostgreSQL", "AWS EC2"],
 };
 
-export const verifiedMetrics = [
-  {
-    value: "100+",
-    label: "Infrastructure Projects Added",
-    detail: "Maintained data pipelines and integration for enterprise infrastructure assets",
-  },
-  {
-    value: "~500ms → ~100ms",
-    label: "Measured Loading-Time Improvement",
-    detail: "Optimized API query execution and frontend data delivery cycles",
-  },
-  {
-    value: "Full-Stack",
-    label: "Frontend + Backend + APIs",
-    detail: "Architected end-to-end features connecting React/Next.js to FastAPI & Django",
-  },
-  {
-    value: "Production",
-    label: "AWS EC2 Deployment Experience",
-    detail: "Configured Linux server environments, Nginx reverse proxies, and PM2 processes",
-  },
-];
-
 export const professionalWork = [
   {
     id: "infracapitalist",

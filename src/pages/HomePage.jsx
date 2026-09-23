@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import StatsBanner from '../components/StatsBanner';
 import FeaturedWork from '../components/FeaturedWork';
 import Experience from '../components/Experience';
 import CodeToProduction from '../components/CodeToProduction';
@@ -17,10 +16,7 @@ const HomePage = () => {
       {/* 1. Hero */}
       <Hero />
 
-      {/* 2. Quick metrics / technical snapshot */}
-      <StatsBanner />
-
-      {/* 3. Selected Professional Work (Infracapitalist flagship + company products) */}
+      {/* 2. Selected Professional Work (Infracapitalist flagship + company products) */}
       <FeaturedWork />
 
       {/* 4. Experience (NeoMegaOne & VIndia) */}
@@ -29,22 +25,22 @@ const HomePage = () => {
       {/* 5. From Code to Production (Pipeline visualizer) */}
       <CodeToProduction />
 
-      {/* 6. Skills (Categorized technical chips) */}
+      {/* 5. Skills (Categorized technical chips) */}
       <Skills />
+
+      {/* 6. Personal Projects (Independent Builds: CropCare, AI Live Chat, Rustique, etc.) */}
+      <Projects />
 
       {/* 7. Engineering Approach */}
       <EngineeringApproach />
 
-      {/* 8. Personal Projects (CropCare, AI Live Chat, Rustique, etc.) */}
-      <Projects />
-
-      {/* 9. About */}
+      {/* 8. About */}
       <About />
 
-      {/* 10. Education & Certifications */}
+      {/* 9. Education & Certifications */}
       <Education />
 
-      {/* 11. Contact */}
+      {/* 10. Contact */}
       <Contact />
     </main>
   );

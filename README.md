@@ -72,8 +72,7 @@ arshwin-portfolio/
 │   │   ├── Hero.jsx          # Headline, primary stack & CTAs
 │   │   ├── Navbar.jsx        # Navigation, mobile menu & theme toggle
 │   │   ├── Projects.jsx      # Curated personal builds preview
-│   │   ├── ScrollToTop.jsx   # Lenis + route change scroll synchronization
-│   │   └── StatsBanner.jsx   # Verified technical metrics banner
+│   │   └── ScrollToTop.jsx   # Lenis + route change scroll synchronization
 │   ├── context/
 │   │   └── ThemeContext.jsx  # Dark/Light mode theme state provider
 │   ├── data/
